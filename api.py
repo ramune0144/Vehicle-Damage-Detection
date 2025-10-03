@@ -249,9 +249,9 @@ async def detect_damage_batch(
     if detector is None:
         raise HTTPException(status_code=503, detail="YOLO detector not initialized")
     
-    if len(files) > 20:  # Limit batch size
-        raise HTTPException(status_code=400, detail="Maximum 20 images per batch")
-    
+    if len(files) > 200:  # Limit batch size
+        raise HTTPException(status_code=400, detail="Maximum 200 images per batch")
+
     batch_id = str(uuid.uuid4())
     results = []
     
